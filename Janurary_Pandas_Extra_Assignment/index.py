@@ -2,10 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Sample DataFrame
-df = pd.read_csv('rawdata/LMG_Inspection_Violations_of_Failed_Restaurants.csv')
+data_df = pd.read_csv('rawdata/LMG_Inspection_Violations_of_Failed_Restaurants.csv')
 
 # Group by 'Premise Zip Code'
-filtered_df = df[df['score'] < 85]
+filtered_df = data_df[data_df['score'] < 85]
 grouped = filtered_df.groupby('premise_zip')
 
 # Iterate through groups
@@ -15,12 +15,12 @@ grouped = filtered_df.groupby('premise_zip')
 #    for index, row in group.iterrows():
         
 #        print(f"Zip Code: {row['premise_zip']}, Score: {row['score']}, Critical Violation: {row['critical_yn']}")
-effect = filtered_df["premise_zip"].value_counts()
+#effect = filtered_df["premise_zip"].value_counts()
 #filtered_df.plot(kind="bar", x="premise_zip", y="score", title="Inspections by Zip Code")
 #plt.plot()
-plt.bar(x=df['premise_zip'], height=df['score'], color=["red"])
+plt.bar(x=data_df['premise_zip'], height=data_df['score'], color=["red"])
 #plt.figure(figsize=(8,6))
 plt.ylabel("Number of Failed Inspections")
 plt.xlabel("Zip Code")
-plt.title("Restaurant Failed Inspections")
+plt.title("Inspections by Zip Code")
 plt.show()
