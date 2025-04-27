@@ -7,20 +7,20 @@ data_df = pd.read_csv('rawdata/LMG_Inspection_Violations_of_Failed_Restaurants.c
 # Group by 'Premise Zip Code'
 filtered_df = data_df[data_df['score'] < 85]
 grouped = filtered_df.groupby('premise_zip')
+zipcode_count = filtered_df["premise_zip"].count()
 
-# Iterate through groups
-#for name, group in grouped:
-#    print(f"Group: {name}")
-    # Iterate through rows in each group
-#    for index, row in group.iterrows():
-        
-#        print(f"Zip Code: {row['premise_zip']}, Score: {row['score']}, Critical Violation: {row['critical_yn']}")
-#effect = filtered_df["premise_zip"].value_counts()
-#filtered_df.plot(kind="bar", x="premise_zip", y="score", title="Inspections by Zip Code")
-#plt.plot()
+
+
 plt.bar(x=filtered_df['premise_zip'], height=filtered_df['score'], color=["red"])
 plt.ylabel("Number of Failed Inspections")
-plt.xlabel("Zip Code")
+plt.xlabel(f"Zip Code \n {zipcode_count} \n  Zip Codes Found")
 plt.title("Inspections by Zip Code")
-#plt.figure(figsize=(8,6))
+plt.axhline(y=10, xmin=0, xmax=100, color='b', linestyle='--')
+plt.axhline(y=20, xmin=0, xmax=100, color='b', linestyle='--')
+plt.axhline(y=30, xmin=0, xmax=100, color='b', linestyle='--')
+plt.axhline(y=40, xmin=0, xmax=100, color='b', linestyle='--')
+plt.axhline(y=50, xmin=0, xmax=100, color='b', linestyle='--')
+plt.axhline(y=60, xmin=0, xmax=100, color='b', linestyle='--')
+plt.axhline(y=70, xmin=0, xmax=100, color='b', linestyle='--')
+plt.axhline(y=80, xmin=0, xmax=100, color='b', linestyle='--')
 plt.show()
