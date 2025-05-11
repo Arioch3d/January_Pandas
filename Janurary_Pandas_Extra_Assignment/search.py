@@ -7,7 +7,7 @@ from IPython.display import display
 data_df = pd.read_csv('rawdata/LMG_Inspection_Violations_of_Failed_Restaurants.csv')
 
 # Create textbox widget for numeric input
-textbox = widgets.IntText(description="Enter Zip Code:")
+textbox = widgets.IntText(description="Enter Zip Code: ", style={'description_width':'initial'})
 
 # Create output widget for displaying results
 output = widgets.Output()
